@@ -1,0 +1,8 @@
+if sudo docker ps -a | grep dev_env
+then 
+  sudo docker rm -f dev_env
+  sudo docker run -dit --name dev_env -p 8180:80 webserver:v2
+else
+  sudo docker run -dit --name dev_env -p 8180:80 webserver:v2
+fi
+sudo docker cp . dev_env:/var/www/html
