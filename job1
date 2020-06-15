@@ -1,0 +1,8 @@
+if sudo docker ps -a | grep master
+then 
+  sudo docker rm -f master
+  sudo docker run -dit --name master -p 8180:80 webserver:v2
+else
+  sudo docker run -dit --name master -p 8180:80 webserver:v2
+fi
+sudo docker cp . master:/var/www/html
